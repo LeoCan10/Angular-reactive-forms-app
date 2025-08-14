@@ -1,8 +1,11 @@
+import { JsonPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-dynamic-page',
-  imports: [],
+  selector: 'dynamic',
+  imports: [
+    JsonPipe
+  ],
   templateUrl: './dynamic-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
