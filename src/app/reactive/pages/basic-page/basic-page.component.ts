@@ -1,6 +1,6 @@
 import { JsonPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-basic-component',
@@ -13,10 +13,19 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class BasicPageComponent {
 
-  myForm = new FormGroup({
-    name: new FormControl(''),
-    price: new FormControl(0),
-    inStorage: new FormControl(0),
-  });
+  fb = inject(FormBuilder);
+
+  myForm = this.fb.group({
+    name: ['', []/**Validadores Sincronicos*/, []/**Validadores Asincronos */],
+    price: [0],
+    inStorage: [0],
+  })
+
+
+  // myForm = new FormGroup({
+  //   name: new FormControl(''),
+  //   price: new FormControl(0),
+  //   inStorage: new FormControl(0),
+  // });
 
 }
