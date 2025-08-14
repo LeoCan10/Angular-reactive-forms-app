@@ -1,0 +1,9 @@
+{
+ "debug.enableStatusBarColor": false,
+ "angular-schematics.schematicsDefaultOptions": {
+  "angular-*": {
+   "externalTemplate": true,
+   "skipStyle": true
+  }
+ }
+}
