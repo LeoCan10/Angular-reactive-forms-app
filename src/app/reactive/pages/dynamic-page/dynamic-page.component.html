@@ -9,10 +9,11 @@
         <div class="col-sm-9">
             <input class="form-control"
                    placeholder="Nombre de la persona"
-                   formControlName="name">
-            <span class="form-text text-danger">
-                   error message
-            </span>
+                   formControlName="name"/>
+                   @if(formUtils.isValidField(myForm, 'name')) {
+                      <span class="form-text text-danger">{{formUtils.getFieldError(myForm, "name")}}</span>
+                   }
+
         </div>
     </div>
 
@@ -23,14 +24,16 @@
 
             <div class="input-group">
                 <input class="form-control"
-                       placeholder="Agregar favorito">
-
+                       placeholder="Agregar favorito"/>
 
                 <button class="btn btn-outline-primary"
                         type="button">
                     Agregar favorito
                 </button>
             </div>
+             @if(formUtils.isValidField(myForm, 'name')) {
+                      <span class="form-text text-danger">{{formUtils.getFieldError(myForm, "name")}}</span>
+                   }
         </div>
     </div>
 
@@ -51,9 +54,11 @@
                       Eliminar
                   </button>
                 </div>
+                @if(formUtils.isValidFieldInArray(favoriteGames, i)){
                 <span class="form-text text-danger">
-                   Este campo es requerido
+                  {{formUtils.getFieldErrorInArray(favoriteGames, i)}}
                 </span>
+                   }
             </div>
 }
 
